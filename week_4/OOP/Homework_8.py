@@ -25,6 +25,7 @@ class Review:
     
         return self.review
 
+        
 class Book(Review):
     def __init__(self, title, author = '', publication_date = 0, style = '', review = ''):
         self.title = title
@@ -51,26 +52,23 @@ class Book(Review):
             self.style = 'comedy'
             self.review = Review.make_review(self)
      
-        return 'Book title: {}, author: {}, publication_date: {}, style: {}, review: {}'.format(self.title, self.author, self.publication_date, self.style, self.review)
-        
+        return self.author, self.publication_date, self.style, self.review
+
     def _eq_(self, other):
         return self is other
 
-    def __repr__(self):
-        return '{}, {}, {}, {}, {}'.format(self.title, self.author, self.publication_date, self.style, self.review)
-
     def __str__(self):
+        self.get_information
         return 'Book title: {}, author: {}, publication date: {}, style: {}, review: {}'.format(self.title, self.author, self.publication_date, self.style, self.review)
 
 
 book1 = Book('Idiot')
 book2 = Book('Player')
-book3 = Book('Warm Heart') 
+book3 = Book('Warm Heart')
 
-print(book1.get_information)
-print(book2.get_information)
-print(book3.get_information)
-
+print(book1)
+print(book2)
+print(book3)
 
 print(book1 == book2)
 print(book1 == book3)
