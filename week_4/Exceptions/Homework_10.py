@@ -15,11 +15,9 @@ def division(x, y):
         return "Division by zero"
 
 def exponentiation(x, y):
-    try:
-        result = x ** y
-        return result   
-    except ZeroDivisionError:
-        return 'Zero cannot be raised to a negative power'
+    result = x ** y
+    return result   
+
 
 def calculator():
     while True:
