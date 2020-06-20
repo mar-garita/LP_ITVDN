@@ -15,29 +15,32 @@ print(common_element)
 # названия и получения изначальной ссылки по её названию.
 
 
+def add_link(d_links): 
+    while True:
+        link = input('Write a link: ')
+        short_link = input('Write a short link: ')
+        d_links[short_link] = link
+        option = input('Enter 1 (Add another link) or 2 (Exit): ')
+        if option == '2':
+            break
+    return d_links
+
+def get_link(d_links):   
+    key = input('Enter a short link: ')  
+    if key in d_links: 
+        link = d_links[key]
+    else:
+        raise KeyError
+    return link
+    
+
 def work_links():
-    
-    def add_link():     # Функция принимает ссылки и их короткие названия, и сохраняет в словарь
-        dict_links = {}
-        while True:
-            option = input('Enter 1 to write the link or 2 to exit: ')
-            if option == '1':
-                link = input('Write a link: ')
-                short_link = input('Write a short link: ')
-                dict_links[short_link] = link
-            else:
-                break
-        return dict_links
+    dict_links = {}
 
-    dict_links = add_link()  # Получила словарь, в который ввела ссылки
-    print(dict_links)        # print напечатала чтобы видеть, что словарь с ссылками есть
+    dict_links = add_link(dict_links)  
+    print(dict_links)   
 
-    def get_link():     # Функция выдает ссылку по ее короткому названию
-        key = input('Enter a short link: ')
-        link = dict_links[key]
-        return link
-    
-    link = get_link()
+    link = get_link(dict_links)
 
     return link
 
